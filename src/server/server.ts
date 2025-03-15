@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerResources } from "../core/resources.js";
-import { registerTools } from "../core/tools.js";
-import { registerPrompts } from "../core/prompts.js";
+import { registerResources } from "../core/resources";
+import { registerTools } from "../core/tools";
+import { registerPrompts } from "../core/prompts";
 
 // Create and start the MCP server
 async function startServer() {
