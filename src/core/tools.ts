@@ -13,15 +13,15 @@ export function registerTools(server: McpServer) {
     "run_command",
     "Run a shell command",
     {
-      name: z.string().describe("command to run")
+      command: z.string().describe("command to run")
     },
-    async (params: { name: string }) => {
-      const greeting = services.RunCommandService.runCommand(params.name);
+    async (params: { command: string }) => {
+      const result = services.RunCommandService.runCommand(params.command);
       return {
         content: [
           {
             type: "text",
-            text: greeting
+            text: result
           }
         ]
       };

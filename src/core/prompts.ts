@@ -11,14 +11,14 @@ export function registerPrompts(server: McpServer) {
     "run_command",
     "Run a shell command",
     {
-      name: z.string().describe("command to run")
+      command: z.string().describe("command to run")
     },
-    (params: { name: string }) => ({
+    (params: { command: string }) => ({
       messages: [{
         role: "user",
         content: {
           type: "text",
-          text: `Run the command: ${params.name}`
+          text: `Run the command: ${params.command}`
         }
       }]
     })
