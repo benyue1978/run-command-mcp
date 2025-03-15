@@ -9,7 +9,7 @@ export function registerPrompts(server: McpServer) {
   // Example prompt
   server.prompt(
     "run_command",
-    "Run a command",
+    "Run a shell command",
     {
       name: z.string().describe("command to run")
     },
