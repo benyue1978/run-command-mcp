@@ -3,10 +3,10 @@
   "module": "src/index.ts",
   "type": "commonjs",
   "version": "1.0.0",
-  "description": "命令行工具，用于运行 Model Context Protocol (MCP) 服务器",
+  "description": "Run a shell command with Model Context Protocol (MCP)",
   "private": false,
   "bin": {
-    "run-command-mcp": "./bin/run-command-mcp.js"
+    "run": "./bin/run.js"
   },
   "scripts": {
     "start": "npx ts-node src/index.ts",
