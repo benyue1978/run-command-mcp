@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import * as services from "./services/index.js";
+import * as services from "./services/index";
 
 /**
  * Register all tools with the MCP server
