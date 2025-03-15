@@ -3,30 +3,30 @@
 const { spawn } = require('child_process');
 const path = require('path');
 
-// 获取命令行参数
+// Get command line arguments
 const args = process.argv.slice(2);
 const command = args[0] || 'help';
 
-// 帮助信息
+// Help information
 if (command === 'help' || command === '--help' || command === '-h') {
   console.log(`
-  MCP 命令行工具
+  MCP Command Line Tool
 
-  用法:
-    run-command-mcp <命令> [选项]
+  Usage:
+    run <command> [options]
 
-  命令:
-    start       启动 MCP 服务器（标准输入/输出模式）
-    start:http  启动 MCP HTTP 服务器
-    dev         以开发模式启动服务器（热重载）
-    dev:http    以开发模式启动 HTTP 服务器（热重载）
-    build       构建项目
-    help        显示此帮助信息
+  Commands:
+    start       Start MCP server (stdin/stdout mode)
+    start:http  Start MCP HTTP server
+    dev         Start server in development mode (hot reload)
+    dev:http    Start HTTP server in development mode (hot reload)
+    build       Build project
+    help        Show this help message
   `);
   process.exit(0);
 }
 
-// 映射命令到 npm 脚本
+// Map commands to npm scripts
 const scriptMap = {
   'start': 'start',
   'start:http': 'start:http',
@@ -36,18 +36,18 @@ const scriptMap = {
   'build:http': 'build:http'
 };
 
-// 检查命令是否有效
+// Check if command is valid
 if (!scriptMap[command]) {
-  console.error(`错误: 未知命令 "${command}"`);
-  console.log('运行 "run-command-mcp help" 查看可用命令');
+  console.error(`Error: Unknown command "${command}"`);
+  console.log('Run "run-command-mcp help" to see available commands');
   process.exit(1);
 }
 
-// 运行对应的 npm 命令
+// Run corresponding npm command
 const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
 const npmArgs = ['run', scriptMap[command]];
 
-console.log(`执行: npm ${npmArgs.join(' ')}`);
+console.log(`Executing: npm ${npmArgs.join(' ')}`);
 
 const child = spawn(npmCommand, npmArgs, {
   cwd: path.resolve(__dirname, '..'),
