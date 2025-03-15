@@ -1,2 +1,2 @@
 // Export all services
-export * from './greeting-service';
+export * from './run-command';

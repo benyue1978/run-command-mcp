@@ -10,38 +10,18 @@ import * as services from "./services/index";
 export function registerTools(server: McpServer) {
   // Greeting tool
   server.tool(
-    "hello_world",
-    "A simple hello world tool",
+    "run_command",
+    "Run a command",
     {
-      name: z.string().describe("Name to greet")
+      name: z.string().describe("command to run")
     },
     async (params: { name: string }) => {
-      const greeting = services.GreetingService.generateGreeting(params.name);
+      const greeting = services.RunCommandService.runCommand(params.name);
       return {
         content: [
           {
             type: "text",
             text: greeting
-          }
-        ]
-      };
-    }
-  );
-
-  // Farewell tool
-  server.tool(
-    "goodbye",
-    "A simple goodbye tool",
-    {
-      name: z.string().describe("Name to bid farewell to")
-    },
-    async (params: { name: string }) => {
-      const farewell = services.GreetingService.generateFarewell(params.name);
-      return {
-        content: [
-          {
-            type: "text",
-            text: farewell
           }
         ]
       };

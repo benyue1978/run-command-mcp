@@ -41,6 +41,7 @@ The template includes:
 After creating your project:
 
 1. Install dependencies using your preferred package manager:
+
    ```bash
    # Using npm
    npm install
@@ -56,6 +57,7 @@ After creating your project:
    ```
 
 2. Start the server:
+
    ```bash
    # Start the stdio server
    npm start
@@ -65,6 +67,7 @@ After creating your project:
    ```
 
 3. For development with auto-reload:
+
    ```bash
    # Development mode with stdio
    npm run dev
@@ -80,6 +83,7 @@ After creating your project:
 When adding custom tools, resources, or prompts to your MCP server:
 
 1. Use underscores (`_`) instead of hyphens (`-`) in all resource, tool, and prompt names
+
    ```typescript
    // Good: Uses underscores
    server.tool(

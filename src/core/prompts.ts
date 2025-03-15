@@ -8,17 +8,17 @@ import { z } from "zod";
 export function registerPrompts(server: McpServer) {
   // Example prompt
   server.prompt(
-    "greeting",
-    "A simple greeting prompt",
+    "run_command",
+    "Run a command",
     {
-      name: z.string().describe("Name to greet")
+      name: z.string().describe("command to run")
     },
     (params: { name: string }) => ({
       messages: [{
         role: "user",
         content: {
           type: "text",
-          text: `Hello, ${params.name}! How can I help you today?`
+          text: `Run the command: ${params.name}`
         }
       }]
     })
